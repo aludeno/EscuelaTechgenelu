@@ -6,12 +6,12 @@ Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('s
 Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/images/{path}/{attachment}', function($path, $attachment) {
     $file = sprintf('storage/%s/%s', $path, $attachment);
